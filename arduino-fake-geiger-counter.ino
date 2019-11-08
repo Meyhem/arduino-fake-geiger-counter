@@ -17,13 +17,13 @@ void loop() {
   float eps = 10;
 
   // Generate random time until next tock should hit.
-  // Use exponential distribution to give it more natural feeling
+  // It's time between events in poisson process
   float p = random_exponential(eps);
 
   // Generate tock sound
   // 30 -+100 Hertz for 5 +- 10 miliseconds to give sense of randomness
   // Sounds like Geiger tock
-  tone(BUZZ_PIN, random_normal() * 100 + 30, 10*random_normal() + 5);
+  tone(BUZZ_PIN, random_normal() * 100 + 30, 10 * random_normal() + 5);
 
   // Wait for next tock
   delay(p * 1000);
